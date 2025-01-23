@@ -18,6 +18,7 @@ class Hand:
         self._cards.append(new_card)
 
         # consider case where new_card is an ace
+        # TODO: fix bug, 2 and Ace initial hand then 10 results in bust currently
         if new_card.get_value() == 1:
             self._score += 1 if self._score >= 11 else 11
         else:
