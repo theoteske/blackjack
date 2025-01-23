@@ -17,11 +17,11 @@ class Card:
     TODO: Add logic that enforces the value is valid and throws an exception if it's not.
     """
 
-    def __init__(self, suit: str, value: int):
+    def __init__(self, suit: Suit, value: int):
         self._suit = suit
         self._value = value
 
-    def get_suit(self) -> str:
+    def get_suit(self) -> Suit:
         return self._suit
 
     def get_value(self) -> int:
