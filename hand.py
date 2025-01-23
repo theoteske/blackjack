@@ -13,19 +13,23 @@ class Hand:
     def __init__(self):
         self._score = 0
         self._cards = []
+        self._has_ace = False
 
     def add_card(self, new_card: Card) -> None:
         self._cards.append(new_card)
 
         # consider case where new_card is an ace
-        # TODO: fix bug, 2 and Ace initial hand then 10 results in bust currently
         if new_card.get_value() == 1:
-            self._score += 1 if self._score >= 11 else 11
+            self._has_ace = True
+            self._score += 11 if self._score < 11 else 1
         else:
             self._score += new_card.get_value()
 
-        # TODO: do we need to print, now it's only here for convenience
-        print("Score: ", self._score)
+        # if there is an ace in the hand, we have to recount our score if we go over 21
+        if self._has_ace and self._score > 21:
+            self._score = 0
+            for card in self._cards:
+                self._score += card.get_value()
 
     def get_score(self) -> int:
         return self._score

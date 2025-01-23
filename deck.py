@@ -18,11 +18,6 @@ class Deck:
             for value in range(1, 14):
                 self._cards.append(Card(suit, min(value, 10)))
 
-    # TODO: Consider removing this method, maybe not necessary
-    def print_deck(self):
-        for card in self._cards:
-            card.print_card()
-
     def draw(self):
         return self._cards.pop()
 
