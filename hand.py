@@ -23,6 +23,7 @@ class Hand:
         else:
             self._score += new_card.get_value()
 
+        # TODO: do we need to print, now it's only here for convenience
         print("Score: ", self._score)
 
     def get_score(self) -> int:
